@@ -1,7 +1,17 @@
+import sys
+import os
+
+# Patch for the cgi module issue in Python 3.13+
+if sys.version_info >= (3, 13):
+    import html
+    sys.modules['cgi'] = type('CGIModule', (), {
+        'parse_header': lambda header: (header, {}),
+        'escape': html.escape,
+    })
+
 import feedparser
 import requests
 import json
-import os
 import time
 from datetime import datetime
 from typing import List, Dict, Any
