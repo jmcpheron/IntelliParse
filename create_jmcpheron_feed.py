@@ -30,7 +30,7 @@ def main():
     # Define podcast feeds that align with JMcPheron's interests
     # Using Lex Fridman and TWIML AI Podcast as they have strong AI content
     feeds = [
-        "https://lexfridman.com/feed/podcast/",           # Lex Fridman Podcast
+        "https://feeds.twit.tv/sn.xml",
         "https://feeds.megaphone.fm/MLN2155636147"        # TWIML AI Podcast
     ]
     
