@@ -27,6 +27,7 @@ wheels/
 *.json
 !sample-simple-feed.json
 !examples/**/*.json
+!feeds_config.json
 
 # Testing output directory
 sample_output/

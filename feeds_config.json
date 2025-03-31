@@ -1,0 +1,50 @@
+{
+  "feeds": [
+    {
+      "name": "jmcpheron",
+      "description": "JMcPheron's personalized AI and media feed",
+      "sources": [
+        "https://lexfridman.com/feed/podcast/",
+        "https://feeds.megaphone.fm/MLN2155636147"
+      ],
+      "primary_interest": "ai_media",
+      "additional_interests": [
+        "artificial_intelligence",
+        "machine_learning", 
+        "entertainment_tech",
+        "media_production",
+        "creative_technology",
+        "technology_ethics"
+      ],
+      "filter_keywords": [
+        "ai", "artificial intelligence", "machine learning", "deep learning",
+        "neural network", "llm", "language model", "reinforcement learning",
+        "creative", "media", "entertainment", "ethics", "future"
+      ],
+      "max_episodes": 30,
+      "output_file": "outputs/jmcpheron_feed.json"
+    },
+    {
+      "name": "tech_hobby",
+      "description": "General tech hobby feed with focus on 3D printing and maker culture",
+      "sources": [
+        "https://feeds.megaphone.fm/MLN2155636147",
+        "https://feeds.fireside.fm/3dprinting/rss"
+      ],
+      "primary_interest": "tech_hobbies",
+      "additional_interests": [
+        "3d_printing",
+        "maker_culture",
+        "electronics",
+        "diy_projects",
+        "open_source_hardware"
+      ],
+      "filter_keywords": [
+        "print", "3d", "maker", "diy", "arduino", "raspberry pi", 
+        "project", "hardware", "electronics"
+      ],
+      "max_episodes": 20,
+      "output_file": "outputs/tech_hobby_feed.json"
+    }
+  ]
+} 

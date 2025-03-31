@@ -49,9 +49,56 @@ This is the minimal viable version of IntelliParse, focused on one core thing:
 
 ## Usage
 
-### Command Line Interface
+### Configuration-Based Approach (Recommended)
 
-The simplest way to use IntelliParse is through the command line interface:
+The simplest way to use IntelliParse is with the configuration-based approach:
+
+1. Define your feeds in `feeds_config.json`:
+   ```json
+   {
+     "feeds": [
+       {
+         "name": "ai_feed",
+         "description": "AI and Machine Learning Feed",
+         "sources": [
+           "https://example.com/feed1.xml",
+           "https://example.com/feed2.xml"
+         ],
+         "primary_interest": "artificial_intelligence",
+         "additional_interests": [
+           "machine_learning",
+           "deep_learning"
+         ],
+         "filter_keywords": [
+           "ai", "neural", "machine learning"
+         ],
+         "max_episodes": 20,
+         "output_file": "outputs/ai_feed.json"
+       }
+     ]
+   }
+   ```
+
+2. Process your feeds:
+   ```bash
+   # List available feeds
+   python process_feed.py --list
+   
+   # Process all feeds
+   python process_feed.py
+   
+   # Process a specific feed
+   python process_feed.py --feed ai_feed
+   
+   # Use a different config file
+   python process_feed.py --config my_config.json
+   ```
+
+This approach makes it easy to define multiple feeds with different interests and sources.
+
+### Command Line Interface (Legacy)
+
+You can also use the original command line interface:
 
 ```bash
 # Basic usage with podcast RSS feed URLs
@@ -93,17 +140,6 @@ python process_subset.py
 PROCESS_FULL=true python test_real_feeds.py
 ```
 
-#### Create a Personalized Feed
-
-You can create a personalized feed based on specific interests:
-
-```bash
-# Generate a personalized feed
-python create_jmcpheron_feed.py
-```
-
-This demonstrates how to customize IntelliParse for personal content curation.
-
 ### Python API
 
 You can also use IntelliParse programmatically:
@@ -124,13 +160,43 @@ result = parser.process()
 parser.save_output(result, "my_feed.json")
 ```
 
+## Configuration Format
+
+The `feeds_config.json` file uses the following format:
+
+```json
+{
+  "feeds": [
+    {
+      "name": "feed_name",                      // Short name for the feed
+      "description": "Feed description",        // Human-readable description
+      "sources": [                              // Array of RSS feed URLs
+        "https://example.com/feed1.xml",
+        "https://example.com/feed2.xml"
+      ],
+      "primary_interest": "main_interest",      // Primary tag/theme
+      "additional_interests": [                 // Other related interests
+        "interest1",
+        "interest2"
+      ],
+      "filter_keywords": [                      // Keywords to filter episodes
+        "keyword1", "keyword2"
+      ],
+      "max_episodes": 30,                       // Max episodes to process
+      "output_file": "outputs/feed_name.json"   // Output file path
+    }
+  ]
+}
+```
+
+This structure makes it easy to define multiple feeds with different interests and sources.
+
 ## Examples
 
 The `examples/` directory contains sample files to demonstrate the input and output formats:
 
 - `examples/output/raw_episodes_sample.json`: Sample of the raw episode data extracted from feeds
 - `examples/output/mock_enriched_feed.json`: Sample of the enriched JSON output from Claude
-- `examples/jmcpheron/`: Personalized feed example focused on AI and media content
 
 These examples show the data format at each stage of processing and can be used as references for building compatible media players or customizing the output format.
 
@@ -142,8 +208,8 @@ IntelliParse produces a JSON file that is compatible with simple media players. 
 {
   "feeds": [
     {
-      "id": "intelliparse-curated",
-      "title": "IntelliParse Curated Feed",
+      "id": "feed-name",
+      "title": "Feed Description",
       "tracks": [
         {
           "id": "unique_episode_id",
@@ -159,8 +225,7 @@ IntelliParse produces a JSON file that is compatible with simple media players. 
             ],
             "content_density": "MEDIUM",
             "confidence_score": 0.85,
-            "preference_match": true,
-            "intelliparse_insight": "Why this might interest the user"
+            "relevance_match": "How this content matches the interests"
           }
         }
       ]
@@ -168,59 +233,6 @@ IntelliParse produces a JSON file that is compatible with simple media players. 
   ]
 }
 ```
-
-## Example User Profile Tags
-This MVP includes sample interests tagged as follows:
-- `ai_hobbies` (new tag the user is creating)
-- `web_accessibility`
-- `bobsburgers`
-- `3d_printing`
-- `retro_gaming`
-- `open_source_hardware`
-
-These tags help Claude decide what content to keep, prioritize, or summarize.
-
-## Example Prompt (abbreviated)
-```
-You are IntelliParse, an LLM agent that identifies relevant episodes from podcast feeds and returns JSON content for use in a simple media player.
-
-This user is creating a new tag called "ai_hobbies" to group interesting media about artificial intelligence, emerging tech, and tools.
-Their broader interests also include:
-- Web accessibility
-- The TV show Bob's Burgers
-- 3D printing
-- Retro gaming
-- Open source hardware
-
-Below is a mix of episodes from multiple podcast feeds. Extract relevant ones and enhance them.
-
-Craft the JSON output with attention to where topics intersect with these hobbies or themes, and note intersections where appropriate in the `intelliparse_insight` section.
-
-Return structured JSON in this format:
-{
-  "episode_id": "unique_id",
-  "core_data": {
-    "title": "...",
-    "date_iso": "...",
-    "runtime_minutes": ...,
-    "media_url": "..."
-  },
-  "intelliparse_enrichment": {
-    "precision_summary": "...",
-    "technical_elements": [
-      {"concept": "...", "relevance": ...}
-    ],
-    "content_density": "...",
-    "confidence_score": ...,
-    "preference_match": true,
-    "intelliparse_insight": "..."
-  }
-}
-```
-
-## Example Feeds (sample only)
-- `https://cyberpodcast.fm/feed.xml`
-- `https://aiinsightsdaily.com/rss`
 
 ## Stack
 - Python 3.x
