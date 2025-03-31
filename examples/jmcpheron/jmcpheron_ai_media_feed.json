@@ -1,0 +1,138 @@
+{
+  "feeds": [
+    {
+      "id": "jmcpheron-ai-media-feed",
+      "title": "JMcPheron's AI & Media Feed",
+      "tracks": [
+        {
+          "id": "lex-ai-dario-amodei",
+          "title": "#452 \u2013 Dario Amodei: Anthropic CEO on Claude, AGI & the Future of AI & Humanity",
+          "description": "An in-depth discussion with Dario Amodei, CEO of Anthropic, the company behind the advanced AI model Claude. The episode explores Claude's capabilities, the company's approach to AI safety and ethics, the pursuit of artificial general intelligence (AGI), and the future implications of increasingly powerful AI systems on humanity.",
+          "audioUrl": "https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_dario_amodei.mp3",
+          "date_iso": "2024-11-11T19:53:30+00:00",
+          "runtime_minutes": 322,
+          "intelliparse_enrichment": {
+            "precision_summary": "Dario Amodei discusses Anthropic's AI model Claude, the company's constitutional AI approach, the quest for AGI, and the future interplay between humans and advanced AI systems.",
+            "technical_elements": [
+              {
+                "concept": "large language models",
+                "relevance": 1.0
+              },
+              {
+                "concept": "ai safety and ethics",
+                "relevance": 0.9
+              },
+              {
+                "concept": "artificial general intelligence",
+                "relevance": 0.9
+              },
+              {
+                "concept": "human-ai interaction",
+                "relevance": 0.8
+              }
+            ],
+            "content_density": "HIGH",
+            "confidence_score": 0.92,
+            "jmcpheron_relevance": "This episode is highly relevant to JMcPheron's interests, as it covers the development of a cutting-edge AI system like Claude, the ethical considerations around advanced AI capabilities, and the wider creative and societal implications of AGI - all core interests at the intersection of AI and media."
+          }
+        },
+        {
+          "id": "lex-ai-cursor-team",
+          "title": "#447 \u2013 Cursor Team: Future of Programming with AI",
+          "description": "A fascinating discussion with the creators of Cursor, an AI-powered code editor that aims to revolutionize programming. The team shares insights into AI-assisted coding, prompt engineering, scaling challenges, and their vision for the future of software development augmented by AI.",
+          "audioUrl": "https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_cursor_team.mp3",
+          "date_iso": "2024-10-06T18:47:46+00:00",
+          "runtime_minutes": 157,
+          "intelliparse_enrichment": {
+            "precision_summary": "The Cursor team discusses their AI-powered code editor, covering AI-assisted programming, prompt engineering, integration of large language models, and their vision for software development aided by AI.",
+            "technical_elements": [
+              {
+                "concept": "ai-assisted coding",
+                "relevance": 1.0
+              },
+              {
+                "concept": "large language models",
+                "relevance": 0.9
+              },
+              {
+                "concept": "prompt engineering",
+                "relevance": 0.8
+              },
+              {
+                "concept": "software development tools",
+                "relevance": 0.9
+              }
+            ],
+            "content_density": "HIGH",
+            "confidence_score": 0.88,
+            "jmcpheron_relevance": "This episode explores the cutting-edge intersection of AI and software development tools, which could have profound creative implications for media production workflows and opens up new possibilities for AI-human collaboration in creative coding endeavors - making it highly relevant to JMcPheron's interests."
+          }
+        },
+        {
+          "id": "lex-ai-elon-musk-and-neuralink-team",
+          "title": "#438 \u2013 Elon Musk: Neuralink and the Future of Humanity",
+          "description": "A wide-ranging conversation with Elon Musk and the Neuralink team about their breakthrough brain-computer interface technology. They discuss the present and future capabilities of Neuralink's neural implants, their vision for symbiotically merging human intelligence with AI, potential impacts on humanity, and more.",
+          "audioUrl": "https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_elon_musk_and_neuralink_team.mp3",
+          "date_iso": "2024-08-02T19:19:20+00:00",
+          "runtime_minutes": 319,
+          "intelliparse_enrichment": {
+            "precision_summary": "Elon Musk and the Neuralink team provide insights into their neural implant technology, the vision of melding human and artificial intelligence, and the profound implications this could have for humanity's future.",
+            "technical_elements": [
+              {
+                "concept": "brain-computer interfaces",
+                "relevance": 1.0
+              },
+              {
+                "concept": "neural implants",
+                "relevance": 1.0
+              },
+              {
+                "concept": "human-ai symbiosis",
+                "relevance": 0.9
+              },
+              {
+                "concept": "future of intelligence",
+                "relevance": 0.8
+              }
+            ],
+            "content_density": "HIGH",
+            "confidence_score": 0.95,
+            "jmcpheron_relevance": "This groundbreaking episode explores the frontier of neurotechnology that could radically augment and intertwine human cognition with AI capabilities. The creative and ethical implications intertwine AI and humanity in profound ways highly relevant to JMcPheron's interests."
+          }
+        },
+        {
+          "id": "lex-ai-aravind-srinivas",
+          "title": "#434 \u2013 Aravind Srinivas: Perplexity CEO on Future of AI, Search & the Internet",
+          "description": "Aravind Srinivas, CEO of Perplexity, discusses his company's novel AI-powered approach to internet search and information retrieval. He shares insights into AI breakthroughs, the future of search, and Perplexity's ambitious vision to revolutionize how humans find answers powered by advanced AI models.",
+          "audioUrl": "https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_aravind_srinivas.mp3",
+          "date_iso": "2024-06-19T21:27:17+00:00",
+          "runtime_minutes": 191,
+          "intelliparse_enrichment": {
+            "precision_summary": "Aravind Srinivas discusses Perplexity's novel AI approach to internet search, insights into recent AI breakthroughs, and his vision for revolutionizing how humans find information online leveraging advanced AI models.",
+            "technical_elements": [
+              {
+                "concept": "ai search engines",
+                "relevance": 1.0
+              },
+              {
+                "concept": "large language models",
+                "relevance": 0.9
+              },
+              {
+                "concept": "information retrieval",
+                "relevance": 0.8
+              },
+              {
+                "concept": "ai breakthroughs",
+                "relevance": 0.7
+              }
+            ],
+            "content_density": "HIGH",
+            "confidence_score": 0.85,
+            "jmcpheron_relevance": "This episode covers novel AI approaches to internet search and information retrieval, with implications for how media is discovered, consumed and produced. The intersection of AI and optimizing information flow is highly relevant to JMcPheron's interests in media technology and innovation."
+          }
+        }
+      ]
+    }
+  ]
+}

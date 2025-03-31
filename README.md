@@ -93,6 +93,17 @@ python process_subset.py
 PROCESS_FULL=true python test_real_feeds.py
 ```
 
+#### Create a Personalized Feed
+
+You can create a personalized feed based on specific interests:
+
+```bash
+# Generate a personalized feed
+python create_jmcpheron_feed.py
+```
+
+This demonstrates how to customize IntelliParse for personal content curation.
+
 ### Python API
 
 You can also use IntelliParse programmatically:
@@ -119,6 +130,7 @@ The `examples/` directory contains sample files to demonstrate the input and out
 
 - `examples/output/raw_episodes_sample.json`: Sample of the raw episode data extracted from feeds
 - `examples/output/mock_enriched_feed.json`: Sample of the enriched JSON output from Claude
+- `examples/jmcpheron/`: Personalized feed example focused on AI and media content
 
 These examples show the data format at each stage of processing and can be used as references for building compatible media players or customizing the output format.
 
