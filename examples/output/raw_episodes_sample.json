@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ep1",
+    "title": "The Future of AI for Hobbyists",
+    "date": "2023-05-15T12:00:00Z",
+    "summary": "In this episode, we discuss how artificial intelligence is becoming more accessible to hobbyists and makers. We cover open source tools, affordable hardware options, and creative projects anyone can try at home with basic skills.",
+    "source_feed": "Tech Hobbyist Podcast",
+    "media_url": "https://example.com/podcasts/tech-hobbyist/ep1.mp3",
+    "duration": "45:30"
+  },
+  {
+    "id": "ep2",
+    "title": "Web Accessibility Best Practices in 2023",
+    "date": "2023-06-01T14:30:00Z",
+    "summary": "We discuss the latest web accessibility standards and how developers can ensure their websites are usable by everyone. Topics include ARIA roles, keyboard navigation, color contrast, and testing tools.",
+    "source_feed": "Web Dev Weekly",
+    "media_url": "https://example.com/podcasts/webdev/ep45.mp3",
+    "duration": "38:15"
+  },
+  {
+    "id": "ep3",
+    "title": "Bob's Burgers Season Finale Review",
+    "date": "2023-05-28T18:45:00Z",
+    "summary": "A detailed discussion of the latest Bob's Burgers season finale. We analyze the character development, plot twists, and favorite moments from the Belcher family's latest adventures.",
+    "source_feed": "Animation Nation",
+    "media_url": "https://example.com/podcasts/animation/ep67.mp3",
+    "duration": "52:10"
+  },
+  {
+    "id": "ep4",
+    "title": "Budget 3D Printers Comparison",
+    "date": "2023-06-10T09:15:00Z",
+    "summary": "We compare the top five budget 3D printers under $300, discussing print quality, reliability, features, and which one provides the best value for beginners and hobbyists.",
+    "source_feed": "Maker Movement",
+    "media_url": "https://example.com/podcasts/maker/ep33.mp3",
+    "duration": "61:45"
+  },
+  {
+    "id": "ep5",
+    "title": "Retro Gaming Preservation",
+    "date": "2023-05-20T15:00:00Z",
+    "summary": "How enthusiasts and organizations are working to preserve classic video games and hardware. We explore emulation, ROM libraries, hardware restoration, and the legal challenges facing preservation efforts.",
+    "source_feed": "Retro Game Club",
+    "media_url": "https://example.com/podcasts/retrogames/ep88.mp3",
+    "duration": "48:20"
+  }
+] 

@@ -34,6 +34,8 @@ This is the minimal viable version of IntelliParse, focused on one core thing:
 
 2. Install the required dependencies:
    ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
@@ -64,7 +66,9 @@ python cli.py --feeds https://example.com/feed.xml \
               --output my_custom_feed.json
 ```
 
-### Test with Mock Data
+### Testing Options
+
+#### Test with Mock Data
 
 You can test the functionality without using real API calls:
 
@@ -73,6 +77,21 @@ python test_with_mock.py
 ```
 
 This will use sample podcast data and a mocked Claude response to demonstrate how the tool works.
+
+#### Test with Real Feeds
+
+To test with real podcast feeds:
+
+```bash
+# Parse feeds but don't call Claude API
+python test_real_feeds.py
+
+# Process a small subset of episodes (5 random episodes)
+python process_subset.py
+
+# Process all episodes with Claude API (uses more API credits)
+PROCESS_FULL=true python test_real_feeds.py
+```
 
 ### Python API
 
@@ -93,6 +112,15 @@ result = parser.process()
 # Save to file
 parser.save_output(result, "my_feed.json")
 ```
+
+## Examples
+
+The `examples/` directory contains sample files to demonstrate the input and output formats:
+
+- `examples/output/raw_episodes_sample.json`: Sample of the raw episode data extracted from feeds
+- `examples/output/mock_enriched_feed.json`: Sample of the enriched JSON output from Claude
+
+These examples show the data format at each stage of processing and can be used as references for building compatible media players or customizing the output format.
 
 ## Output Format
 

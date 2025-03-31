@@ -26,6 +26,10 @@ wheels/
 # Output files
 *.json
 !sample-simple-feed.json
+!examples/**/*.json
+
+# Testing output directory
+sample_output/
 
 # Virtual environment
 venv/
@@ -41,5 +45,3 @@ ENV/
 # OS specific files
 .DS_Store
 Thumbs.db 
-# Sample output
-sample_output/

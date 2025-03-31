@@ -1,0 +1,97 @@
+{
+  "feeds": [
+    {
+      "id": "intelliparse-curated",
+      "title": "IntelliParse Curated Feed",
+      "tracks": [
+        {
+          "id": "ep1",
+          "title": "The Future of AI for Hobbyists",
+          "description": "Exploration of accessible AI tools and projects for hobbyists and makers, with emphasis on open source solutions and affordable hardware options.",
+          "audioUrl": "https://example.com/podcasts/tech-hobbyist/ep1.mp3",
+          "date_iso": "2023-05-15T12:00:00Z",
+          "runtime_minutes": 45.5,
+          "intelliparse_enrichment": {
+            "precision_summary": "This episode covers how AI is becoming more accessible to hobbyists through open source tools and affordable hardware, with practical project suggestions for beginners.",
+            "technical_elements": [
+              {
+                "concept": "open source AI",
+                "relevance": 0.9
+              },
+              {
+                "concept": "maker projects",
+                "relevance": 0.8
+              },
+              {
+                "concept": "DIY artificial intelligence",
+                "relevance": 0.7
+              }
+            ],
+            "content_density": "HIGH",
+            "confidence_score": 0.95,
+            "preference_match": true,
+            "intelliparse_insight": "Directly matches user's ai_hobbies interest and has crossover with open_source_hardware"
+          }
+        },
+        {
+          "id": "ep2",
+          "title": "Web Accessibility Best Practices in 2023",
+          "description": "Comprehensive guide to implementing web accessibility standards, including ARIA roles, keyboard navigation, and color contrast best practices.",
+          "audioUrl": "https://example.com/podcasts/webdev/ep45.mp3",
+          "date_iso": "2023-06-01T14:30:00Z",
+          "runtime_minutes": 38.25,
+          "intelliparse_enrichment": {
+            "precision_summary": "A practical guide to implementing current web accessibility standards, covering ARIA roles, keyboard navigation, and testing methodologies.",
+            "technical_elements": [
+              {
+                "concept": "ARIA roles",
+                "relevance": 0.9
+              },
+              {
+                "concept": "keyboard navigation",
+                "relevance": 0.8
+              },
+              {
+                "concept": "color contrast",
+                "relevance": 0.7
+              }
+            ],
+            "content_density": "HIGH",
+            "confidence_score": 0.9,
+            "preference_match": true,
+            "intelliparse_insight": "Directly aligns with user's web_accessibility interest"
+          }
+        },
+        {
+          "id": "ep4",
+          "title": "Budget 3D Printers Comparison",
+          "description": "Detailed analysis of five sub-$300 3D printers, evaluating print quality, reliability, and feature sets for hobbyist use.",
+          "audioUrl": "https://example.com/podcasts/maker/ep33.mp3",
+          "date_iso": "2023-06-10T09:15:00Z",
+          "runtime_minutes": 61.75,
+          "intelliparse_enrichment": {
+            "precision_summary": "Comprehensive comparison of five budget 3D printers under $300, analyzing print quality, build volume, and which models offer the best value for beginners.",
+            "technical_elements": [
+              {
+                "concept": "FDM printing",
+                "relevance": 0.8
+              },
+              {
+                "concept": "print quality metrics",
+                "relevance": 0.7
+              },
+              {
+                "concept": "budget hardware",
+                "relevance": 0.9
+              }
+            ],
+            "content_density": "MEDIUM",
+            "confidence_score": 0.85,
+            "preference_match": true,
+            "intelliparse_insight": "Matches user's 3d_printing interest with practical buying advice"
+          }
+        }
+      ]
+    }
+  ]
+}
