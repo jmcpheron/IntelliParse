@@ -17,9 +17,15 @@ def main():
     print("Creating JMcPheron specialized feed...")
     
     # Check for API key
-    if not os.environ.get("ANTHROPIC_API_KEY"):
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
         print("ERROR: Anthropic API key not set. Please add it to your .env file.")
         return
+    else:
+        print(f"Found API key: {api_key[:8]}...{api_key[-4:]}")
+        
+    # Explicitly set the API key in the environment again to make sure it's available
+    os.environ["ANTHROPIC_API_KEY"] = api_key
     
     # Define podcast feeds that align with JMcPheron's interests
     # Using Lex Fridman and TWIML AI Podcast as they have strong AI content
@@ -97,6 +103,8 @@ This feed is being created specifically for JMcPheron, who is interested in:
 
 JMcPheron is particularly interested in the intersection of AI with creative fields, media production, and ethical considerations.
 
+IMPORTANT: Return ONLY valid JSON with no additional text or explanation. Do not include any preamble, explanations, or text outside the JSON structure.
+
 Below is a mix of episodes from multiple podcast feeds. Extract the most relevant ones for JMcPheron and enhance them.
 
 For each episode, provide:
@@ -105,7 +113,7 @@ For each episode, provide:
 3. A short precision summary (1-3 sentences)
 4. Why this might be interesting to JMcPheron specifically
 
-Return structured JSON in this format:
+Return ONLY the following JSON structure with no other text:
 {{
   "feeds": [
     {{
@@ -147,12 +155,35 @@ FEED CONTENT:
         
         # Save the result
         output_file = "examples/jmcpheron/jmcpheron_ai_media_feed.json"
-        custom_parser.save_output(result, output_file)
         
-        print(f"Successfully created JMcPheron's feed. Output saved to {output_file}")
+        # Check if result is None (API error case)
+        if result is None:
+            print("Error: Could not get a valid JSON response from Claude API.")
+            # Use a fallback approach
+            print("Using process_feed_for_player.py as a fallback...")
+            
+            from process_feed_for_player import process_feed
+            
+            # Create a compatible config
+            feed_config = {
+                "name": "jmcpheron",
+                "description": "JMcPheron's AI & Media Feed",
+                "primary_interest": "ai_media",
+                "additional_interests": jmcpheron_interests,
+                "sources": feeds,
+                "output_file": output_file,
+                "filter_keywords": keywords,
+                "max_episodes": 30
+            }
+            
+            # Process using the player-compatible format
+            process_feed(feed_config, player_format=True)
+        else:
+            custom_parser.save_output(result, output_file)
+            print(f"Successfully created JMcPheron's feed. Output saved to {output_file}")
         
-        # Print a summary
-        if "feeds" in result and len(result["feeds"]) > 0:
+        # Print a summary if result is not None
+        if result is not None and "feeds" in result and len(result["feeds"]) > 0:
             feed = result["feeds"][0]
             print(f"\nCreated feed: {feed['title']}")
             print(f"Total tracks: {len(feed['tracks'])}")

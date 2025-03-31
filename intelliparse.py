@@ -134,7 +134,7 @@ FEED CONTENT:
 """
         return prompt
     
-    def call_claude_api(self, prompt: str) -> Dict[str, Any]:
+    def get_claude_response(self, prompt: str) -> str:
         """Submit prompt to Claude API and return JSON response."""
         if not ANTHROPIC_API_KEY:
             raise ValueError("ANTHROPIC_API_KEY environment variable not set")
@@ -175,27 +175,70 @@ FEED CONTENT:
         except Exception as e:
             raise Exception(f"Failed to parse JSON from Claude response: {str(e)}")
     
-    def process(self) -> Dict[str, Any]:
-        """Run the full IntelliParse process and return enriched JSON."""
-        # 1. Parse all feeds to extract raw episode data
+    def process(self):
+        """Process the feeds and return the enriched output."""
+        # Get the text blob from the feeds
         episodes = self.parse_feeds()
-        
-        # 2. Convert episodes to text blob
         text_blob = self.create_text_blob(episodes)
         
-        # 3. Create Claude prompt with text blob and user interests
+        # Create the prompt
         prompt = self.create_claude_prompt(text_blob)
         
-        # 4. Call Claude API with the prompt
-        enriched_json = self.call_claude_api(prompt)
-        
-        return enriched_json
+        # Get the response from Claude
+        try:
+            response = self.get_claude_response(prompt)
+            
+            # Debug information to diagnose JSON issues
+            if response:
+                print("DEBUG - First 100 characters of Claude response:")
+                print(response[:100] + "...")
+            else:
+                print("WARNING: Empty response from Claude API")
+            
+            # Try to parse the JSON response
+            try:
+                result = json.loads(response)
+                return result
+            except json.JSONDecodeError as e:
+                print(f"ERROR: Failed to parse JSON from Claude response: {e}")
+                print("First 500 characters of response:")
+                print(response[:500])
+                print("Last 500 characters of response:")
+                print(response[-500:])
+                
+                # Let's try to salvage the JSON by finding and extracting JSON-like content
+                import re
+                json_pattern = r'(\{[\s\S]*\})'
+                match = re.search(json_pattern, response)
+                if match:
+                    potential_json = match.group(1)
+                    print("\nAttempting to extract JSON portion...")
+                    try:
+                        result = json.loads(potential_json)
+                        print("Successfully extracted valid JSON!")
+                        return result
+                    except json.JSONDecodeError:
+                        print("Could not extract valid JSON.")
+                
+                return None
+                
+        except Exception as e:
+            print(f"Error while processing with Claude: {str(e)}")
+            return None
     
     def save_output(self, data: Dict[str, Any], filename: str = "intelliparse_output.json"):
-        """Save the enriched JSON output to a file."""
-        with open(filename, "w") as f:
-            json.dump(data, f, indent=2)
-        print(f"Saved output to {filename}")
+        """Save JSON output to file."""
+        if data is None:
+            print(f"Warning: No data to save to {filename}")
+            # Save an empty structured result
+            data = {"feeds": [{"tracks": []}]}
+            
+        try:
+            with open(filename, "w") as f:
+                json.dump(data, f, indent=2)
+            print(f"Saved output to {filename}")
+        except Exception as e:
+            print(f"Error saving output: {str(e)}")
 
 
 def main():
